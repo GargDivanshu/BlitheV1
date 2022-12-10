@@ -27,7 +27,7 @@ const Sidebar = ({user, closeToggle}) => {
         <Link
         to="/"
         className="flex px-5 gap-2 my-6 pt-1 w-190 items-center"
-        onClicl={handleCloseSidebar}
+        onClick={handleCloseSidebar}
         >
         </Link>
         <div className="flex flex-col gap-5">
@@ -54,6 +54,18 @@ const Sidebar = ({user, closeToggle}) => {
           </h3>
         </div>
       </div>
+      {
+        user && (
+          <Link
+          to={`user-profile/${user._id}`}
+          className="flex my-5 mb-3 gap-2 p-2 bg-white rounded-lg shadow-lg mx-3"
+          onClick={handleCloseSidebar}
+          >
+          <img src={user.image} className="w-10 h-10 rounded-full " alt="profile-logo"/>
+          <p className="my-auto">{user.userName}</p>
+          </Link>
+        )
+      }
     </div>
   )
 }

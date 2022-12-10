@@ -7,6 +7,7 @@ import {client} from '../client'
 import logo from '../assets/BlitheLogo.png'
 import Pins from './Pins'
 import {userQuery} from '../utilities/data'
+import { fetchUser } from './../utilities/fetchUser';
 
 const Home = () => {
 
@@ -15,7 +16,7 @@ const Home = () => {
   const scrollRef = useRef(null);
 
   //fetcg the info from localstorage if it is there or if not then clear 
-  const userInfo = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
+  const userInfo = fetchUser();
   
   useEffect(() => { //in this sanity query you put the google id 
     //received from local storsge and put it here for sanuty
